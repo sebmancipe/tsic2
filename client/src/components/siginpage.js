@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Alert from 'react-bootstrap/Alert';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../index.css';
 
 import API from './api/api';
 import history from './history/history';
@@ -51,11 +52,12 @@ export default class SiginPage extends Component {
 
     render() {
         return (
-            <Container>
+            <Container id="signin-container">
+            <h3>Registra tus datos</h3>
                 <Alert dismissible onClose={this.handleCloseAlert} show={this.state.errorServer} variant='danger'>
                     Ups, se presentó un error por nuestra parte. Intenta nuevamente en un momento
                             </Alert>
-                <Form onChange={this.handleChange}>
+                <Form onChange={this.handleChange} id="sigin-form">
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>Email</Form.Label>
@@ -78,7 +80,7 @@ export default class SiginPage extends Component {
                         <Form.Control as="textarea" rows="2" placeholder="Ocupación, estudios, hobbies" name="description" />
                     </Form.Group>
 
-                    <Button variant="primary" onClick={this.handleSignin}>
+                    <Button id="sigin-button" variant="primary" onClick={this.handleSignin}>
                         Registrarme!
                 </Button>
                 </Form>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../index.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -36,30 +37,30 @@ export default class LoginPage extends Component {
 
     handleLogin(event) {
         event.preventDefault();
-        API.post('/login', {
+        history.push('/main');
+        /*API.post('/login', {
             'email': this.state.email,
             'password': this.state.password
         })
             .then((res) => {
                 if(res.data.data!== []){
                     this.setState({ errorPassword: false });
-                    console.log(res.data.data[0].name);
                     sessionStorage.setItem('name',res.data.data[0].name);
                     history.push('/main');
                 } else this.setState({ errorPassword: true });
             })
             .catch(() => {
                 this.setState({ errorPassword: true });
-            });
+            });*/
     }
 
 
     render() {
         return (
-            <Container>
+            <Container id="login-container">
                 <Row>
-                    <Col xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1, offset: 3 }} ><h1>Iniciar sesión en TSIC</h1></Col>
-                    <Col xs={{ span: 12, order: 1, offset: 4 }} md={{ span: 3, order: 2, offset: 0 }}><img src={image} alt="logo project" /></Col>
+                    <Col id="login-img" xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1, offset: 3 }} ><img src={image} alt="logo project" /></Col>
+                    <Col id="login-text"xs={{ span: 12, order: 2 }} md={{ span: 6, order: 1, offset: 3 }} ><h1>Iniciar sesión en TSIC</h1></Col>
                 </Row>
                 <Row >
                     <Col md="3" lg="4" />

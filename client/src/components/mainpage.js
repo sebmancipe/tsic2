@@ -39,24 +39,24 @@ export default class MainPage extends Component {
 
     render() {
         return (
-            <Container>
-            <Button onClick={this.handleLogout}> Cerrar la sesión </Button>
-            <Tab.Container id="list-group-tabs-example" defaultActiveKey="0">
-            <h3>Bienvenido usuario: {this.state.name}</h3>
-            <h5>Otros usuarios registrados</h5>
+            <Container id="main-container">
+            <Button id="main-buttonlogout" onClick={this.handleLogout}> Cerrar la sesión </Button>
+            <Tab.Container defaultActiveKey="0">
+            <h3 id="main-textuser">Bienvenido usuario: {this.state.name}</h3>
+            <h5 id="main-textuser2">Otros usuarios registrados</h5>
                 <Row>
-                    <Col sm={4}>
+                    <Col sm={6} id="main-tablecontainer">
                         <ListGroup>
                             {this.state.users.map((user,index) => (
                                 <ListGroup.Item key={index} action href={'#'+index}>{user.name}</ListGroup.Item>
                             ))}
                         </ListGroup>
                     </Col>
-                    <Col sm={8}>
+                    <Col sm={6}>
                         <Tab.Content>
                             {this.state.users.map((user,index) => (
                                 <Tab.Pane key={index} eventKey={'#'+index}>
-                                    {user.description} - {user.email}
+                                    <h4>Descripción: {user.description} <br/><br/> Correo electrónico: {user.email}</h4>
                                 </Tab.Pane>
                             ))}
                         </Tab.Content>
