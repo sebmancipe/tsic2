@@ -37,8 +37,7 @@ export default class LoginPage extends Component {
 
     handleLogin(event) {
         event.preventDefault();
-        history.push('/main');
-        /*API.post('/login', {
+        API.post('/login', {
             'email': this.state.email,
             'password': this.state.password
         })
@@ -51,7 +50,7 @@ export default class LoginPage extends Component {
             })
             .catch(() => {
                 this.setState({ errorPassword: true });
-            });*/
+            });
     }
 
 
