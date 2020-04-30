@@ -1,6 +1,7 @@
 require('./src/db');
 const express = require('express');
 const path = require("path");
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = 8080;
@@ -8,6 +9,8 @@ const PORT = 8080;
 // Routes
 const userRouter = require('./src/routes/user.router');
 const CLIENT_BUILD_PATH = path.join(__dirname, "../client/build");
+
+app.use(cors());
 
 app.use(
     bodyParser.urlencoded({
