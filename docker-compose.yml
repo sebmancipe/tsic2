@@ -22,7 +22,7 @@ services:
     mongo:
       image: mongo
       volumes:
-        - data-volume:/data/db
+        - mongo-volume:/data/db
       container_name: database-mongo
       ports:
         - "27017:27017"
@@ -51,7 +51,8 @@ networks:
     driver: bridge
 
 volumes: 
-  data-volume:
+  mongo-volume:
+    external: true
   node_modules:
   web-root:
     driver: local
